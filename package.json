@@ -2,7 +2,7 @@
   "name": "atabuy-app",
   "version": "1.0.0",
   "private": true,
-  "homepage": "www.atabuy.de",
+  "homepage": "https://www.atabuy.de",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

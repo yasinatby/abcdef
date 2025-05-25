@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/www.atabuy.de/static/css/main.b7c910d3.css",
+    "main.js": "/www.atabuy.de/static/js/main.35ddacfe.js",
+    "index.html": "/www.atabuy.de/index.html",
+    "main.b7c910d3.css.map": "/www.atabuy.de/static/css/main.b7c910d3.css.map",
+    "main.35ddacfe.js.map": "/www.atabuy.de/static/js/main.35ddacfe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b7c910d3.css",
+    "static/js/main.35ddacfe.js"
+  ]
+}
