@@ -29,16 +29,16 @@ function Navbar({ lang, setLang }) {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-70 text-white z-20">
+    <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-75 text-white z-50">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link to="/">
-          <img src={LOGO_SRC} alt="Atabuy Logo" className="h-8" />
+          <img src={LOGO_SRC} alt="Atabuy Logo" className="h-8 md:h-10" />
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-8 text-lg">
           {links.map(({ to, label }) => (
-            <Link key={to} to={to} className="hover:text-gray-300">
+            <Link key={to} to={to} className="hover:text-gray-300 transition">
               {label}
             </Link>
           ))}
@@ -48,36 +48,44 @@ function Navbar({ lang, setLang }) {
           {/* Language Toggle */}
           <button
             onClick={() => setLang(lang === 'de' ? 'en' : 'de')}
-            className="border p-1 rounded"
+            className="border border-white px-2 py-1 rounded text-sm md:text-base"
+            aria-label="Toggle language"
           >
             {lang === 'de' ? 'EN' : 'DE'}
           </button>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden flex flex-col justify-between h-6"
+            className="md:hidden flex flex-col justify-center items-center space-y-1 focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            <span className="block w-6 h-0.5 bg-white"></span>
-            <span className="block w-6 h-0.5 bg-white"></span>
-            <span className="block w-6 h-0.5 bg-white"></span>
+            <span className="block w-8 h-1 bg-white"></span>
+            <span className="block w-8 h-1 bg-white"></span>
+            <span className="block w-8 h-1 bg-white"></span>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {menuOpen && (
-        <div className="md:hidden bg-black bg-opacity-90 text-white p-4 space-y-4">
+        <div className="fixed inset-0 bg-black bg-opacity-95 flex flex-col items-center justify-center p-6 space-y-6 md:hidden">
           {links.map(({ to, label }) => (
             <Link
               key={to}
               to={to}
               onClick={() => setMenuOpen(false)}
-              className="block text-lg hover:text-gray-300"
+              className="text-2xl font-semibold hover:text-gray-300 transition"
             >
               {label}
             </Link>
           ))}
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="mt-4 text-white text-sm underline"
+          >
+            {lang === 'de' ? 'Schließen' : 'Close'}
+          </button>
         </div>
       )}
     </nav>
@@ -111,7 +119,7 @@ function Home({ lang }) {
         </h2>
         <Link
           to="/shop"
-          className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+          className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition text-lg md:text-xl"
         >
           {lang === 'de' ? 'Zum Shop' : 'Go to Shop'}
         </Link>
