@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import NewsletterPopup from './NewsletterPopup';
 
+// Page components
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import B2BPage from './pages/B2BPage';
+import SoftwarePage from './pages/SoftwarePage';
+import ShopPage from './pages/ShopPage';
+import LegalPage from './pages/LegalPage';
+
 // Cloudinary assets
 const LOGO_SRC = 'https://res.cloudinary.com/ddhshcdgo/image/upload/v1748177069/Bildschirmfoto_2025-03-23_um_22.36.52_sfwkl2.png';
 const VIDEO_URL = 'https://res.cloudinary.com/ddhshcdgo/video/upload/v1747233486/192779-893446888_online-video-cutter.com_ye96hi.mp4';
@@ -112,14 +120,7 @@ function Home({ lang }) {
   );
 }
 
-// Import page components
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import B2BPage from './pages/B2BPage';
-import SoftwarePage from './pages/SoftwarePage';
-import ShopPage from './pages/ShopPage';
-import LegalPage from './pages/LegalPage';
-
+// Main App component with routes
 export default function App() {
   const [lang, setLang] = useState('de');
   const [showPopup, setShowPopup] = useState(false);
