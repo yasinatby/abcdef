@@ -105,7 +105,7 @@ export default function AboutPage({ lang }) {
           </h2>
           <p className="leading-relaxed">
             {lang === 'de'
-              ? 'Mein Name ist Yasin Atbabey, Gründer und alleiniger Ansprechpartner dieses Unternehmens. Mit jahrelanger Erfahrung in der Elektronikbranche lege ich Wert auf offene Kommunikation, schnelle Entscheidungswege und ein partnerschaftliches Miteinander. Ihre Zufriedenheit steht für mich stets an erster Stelle.'
+              ? 'Mein Name ist Yasin Atabey, Gründer und alleiniger Ansprechpartner dieses Unternehmens. Mit jahrelanger Erfahrung in der Elektronikbranche lege ich Wert auf offene Kommunikation, schnelle Entscheidungswege und ein partnerschaftliches Miteinander. Ihre Zufriedenheit steht für mich stets an erster Stelle.'
               : 'My name is Yasin Atabey, founder and sole contact of this company. With years of experience in the electronics industry, I value open communication, fast decision-making, and a partnership-based approach. Your satisfaction is always my top priority.'}
           </p>
         </section>
