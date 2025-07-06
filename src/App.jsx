@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -29,11 +30,13 @@ export default function App() {
   const [showPopup, setShowPopup] = useState(false);
   const [dark, setDark] = useState(false);
 
+  // Newsletter-Popup nach kurzer Zeit anzeigen
   useEffect(() => {
     const timer = setTimeout(() => setShowPopup(true), 2000);
     return () => clearTimeout(timer);
   }, []);
 
+  // Darkmode initial erkennen
   useEffect(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const stored = localStorage.theme;
@@ -41,6 +44,7 @@ export default function App() {
     setDark(activeDark);
   }, []);
 
+  // Klasse auf <html> setzen und speichern
   useEffect(() => {
     const root = document.documentElement;
     if (dark) {
@@ -55,13 +59,16 @@ export default function App() {
   return (
     <CartProvider>
       <Router>
+        {/* Newsletter-Popup */}
         {showPopup && (
           <NewsletterPopup lang={lang} onClose={() => setShowPopup(false)} />
         )}
 
+        {/* Navbar */}
         <Navbar lang={lang} setLang={setLang} dark={dark} setDark={setDark} />
 
-        <div className="flex flex-col min-h-screen bg-white text-gray-800 dark:bg-neutral-900 dark:text-neutral-100">
+        {/* Hauptbereich mit dynamischer Farbe */}
+        <div className="flex flex-col min-h-screen bg-white text-gray-900 dark:bg-neutral-900 dark:text-neutral-100">
           <main className="flex-1 pt-20">
             <Routes>
               <Route path="/" element={<Home lang={lang} />} />
@@ -82,6 +89,7 @@ export default function App() {
             </Routes>
           </main>
 
+          {/* Footer */}
           <Footer />
         </div>
       </Router>
