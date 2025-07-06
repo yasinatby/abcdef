@@ -7,7 +7,7 @@ import { CartProvider } from './context/CartContext';
 import NewsletterPopup from './NewsletterPopup';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop'; // <-- neu
+import ScrollToTop from './components/ScrollToTop.jsx'; // <-- neu
 
 // Pages
 import Home from './pages/Home';
