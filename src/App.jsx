@@ -7,6 +7,7 @@ import { CartProvider } from './context/CartContext';
 import NewsletterPopup from './NewsletterPopup';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop'; // <-- neu
 
 // Pages
 import Home from './pages/Home';
@@ -59,6 +60,9 @@ export default function App() {
   return (
     <CartProvider>
       <Router>
+        {/* ScrollToTop sorgt bei jedem Routen-Wechsel für scroll(0,0) */}
+        <ScrollToTop />
+
         {/* Newsletter-Popup */}
         {showPopup && (
           <NewsletterPopup lang={lang} onClose={() => setShowPopup(false)} />
