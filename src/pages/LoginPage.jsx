@@ -1,6 +1,4 @@
-// src/pages/LoginPage.jsx
 import React, { useState } from 'react';
-// Temporärer Fix
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -8,7 +6,7 @@ export default function LoginPage({ lang = 'de' }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [code, setCode] = useState('');
-  const [step, setStep] = useState(1); // 1 = Login, 2 = 2FA Code
+  const [step, setStep] = useState(1);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -18,9 +16,8 @@ export default function LoginPage({ lang = 'de' }) {
 
     try {
       const res = await axios.post('/api/auth/login', { email, password });
-
       if (res.data.twoFA) {
-        setStep(2); // Wechsle zum 2FA-Code-Feld
+        setStep(2);
       } else {
         completeLogin(res.data);
       }
@@ -49,7 +46,7 @@ export default function LoginPage({ lang = 'de' }) {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-6 border rounded-xl shadow-md">
+    <div className="max-w-md mx-auto mt-20 p-6 border border-gray-200 dark:border-neutral-700 rounded-xl shadow-md bg-white dark:bg-neutral-800 text-gray-800 dark:text-neutral-100">
       <h1 className="text-2xl font-bold mb-4">
         {lang === 'de' ? 'Login' : 'Login'}
       </h1>
@@ -63,7 +60,7 @@ export default function LoginPage({ lang = 'de' }) {
             placeholder="E-Mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white p-2 rounded"
             required
           />
           <input
@@ -71,12 +68,12 @@ export default function LoginPage({ lang = 'de' }) {
             placeholder="Passwort"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white p-2 rounded"
             required
           />
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+            className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
           >
             {lang === 'de' ? 'Einloggen' : 'Login'}
           </button>
@@ -93,12 +90,12 @@ export default function LoginPage({ lang = 'de' }) {
             placeholder={lang === 'de' ? 'Bestätigungscode' : 'Verification Code'}
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white p-2 rounded"
             required
           />
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
           >
             {lang === 'de' ? 'Code bestätigen' : 'Verify Code'}
           </button>
