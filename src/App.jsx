@@ -7,7 +7,7 @@ import { CartProvider } from './context/CartContext';
 import NewsletterPopup from './NewsletterPopup';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop.jsx';s
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
@@ -40,7 +40,7 @@ export default function App() {
   // Darkmode initial erkennen
   useEffect(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const stored = localStorage.theme;
+    const stored = localStorage.getItem('theme');
     const activeDark = stored ? stored === 'dark' : prefersDark;
     setDark(activeDark);
   }, []);
@@ -50,17 +50,16 @@ export default function App() {
     const root = document.documentElement;
     if (dark) {
       root.classList.add('dark');
-      localStorage.theme = 'dark';
+      localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
-      localStorage.theme = 'light';
+      localStorage.setItem('theme', 'light');
     }
   }, [dark]);
 
   return (
     <CartProvider>
       <Router>
-        {/* ScrollToTop sorgt bei jedem Routen-Wechsel für scroll(0,0) */}
         <ScrollToTop />
 
         {/* Newsletter-Popup */}
