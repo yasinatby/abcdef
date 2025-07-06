@@ -4,11 +4,13 @@ import { useLocation } from 'react-router-dom';
 
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    // Bei Hash-Router muss man ggf. kurz warten, bis das neue Element gerendert ist
+    // Bei jedem Wechsel von Pfad oder Hash kurz scrollen wir nach ganz oben
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
   }, [pathname, hash]);
+
   return null;
 }
